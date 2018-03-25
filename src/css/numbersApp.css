@@ -1,0 +1,80 @@
+.numbers-app {
+	width: 420px;
+	margin: 20px auto 0;
+	background: #fff;
+	box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.numbers-app section {
+	margin-bottom: 10px;
+}
+
+.numbers-app__container {
+	padding: 0 0 5px;
+}
+
+.numbers-app__section-container {
+	padding: 0 10px;
+}
+
+.numbers-app input {
+    padding: 3px;	
+}
+
+.numbers-app h2 {
+	color: #fff;
+	background: #4fbef5;
+	font-size: 14px;
+	padding: 3px 10px;
+	margin-bottom: 5px;
+}
+
+.range-picker__container {
+	display: flex;
+}
+
+.range-picker__input-container {
+	flex: 1;
+}
+
+.range-picker__input--range{
+	width: 90%;
+}
+
+.number-present__number {
+	padding: 5px 0;
+	text-align: center;
+	font-size: 39px;
+}
+
+.number-present__input {
+	width: 100%;
+	font-size: 16px;
+}
+
+.buttons__container {
+	display: flex;
+}
+
+.range-picker__default-ranges {
+	margin-top: 8px;
+	display: flex;
+	justify-items: flex-start;
+}
+
+.range-picker__range {
+	border: 1px solid #2e2e2e;
+	border-radius: 4px;
+	display: inline-block;
+	padding: 3px;
+	margin-right: 5px;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.range-picker__range:hover {
+	color: #fff;
+	background: #2e2e2e;
+}
