@@ -1,0 +1,22 @@
+0 - cero
+1 - uno
+14 - catorce
+123 - ciento veintitrés
+1000 - mil
+1104 - mil ciento cuatro
+2000 - dos mil
+50000 - cincuenta mil
+500000 - quinientos mil
+500400 - quinientos mil cuatrocientos
+500040 - quinientos mil cuarenta
+5000004 - cinco millones cuatro
+5100034 - cinco millones cien mil treinta y cuatro
+5100000 - cinco millones cien mil
+1000101 - un millón ciento uno
+9000006 - nueve millones seis
+50800000 - cincuenta millones ochocientos mil
+100100700 - cien millones cien mil setecientos
+103000709 - ciento tres millones setecientos nueve
+123456789 - ciento veintitrés millones cuatrocientos cincuenta y seis mil setecientos ochenta y nueve
+345111006 - trescientos cuarenta y cinco millones ciento once mil seis
+399887656 - trescientos noventa y nueve millones ochocientos ochenta y siete mil seiscientos cincuenta y seis

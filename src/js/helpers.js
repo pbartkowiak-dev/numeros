@@ -1,6 +1,6 @@
 export function buildNumber(numberToBuild) {
     const num = parseInt(numberToBuild, 10);
-    const numLength = String(num).trim().length;
+    const numLength = String(num).length;
     const buildsList = {
         1: buildUnits,
         2: buildDecimals,
@@ -17,7 +17,7 @@ export function buildNumber(numberToBuild) {
         return 'cero';
     }
 
-    return buildsList[numLength](num);
+    return buildsList[numLength](num).replace(/\s+/g, ' ').trim();
 
     // ============================================
     // builder functions
@@ -53,16 +53,16 @@ export function buildNumber(numberToBuild) {
         };
 
         if (teens === 1) {
-            return buildTeens(remainder)
+            return buildTeens(remainder);
         } else if (teens === 2) {
             return buildTwenty(remainder);
         } else if (teens === 0) {
-            return `${buildUnits(remainder)}`.trim();
+            return `${buildUnits(remainder)}`;
         } else {
             if (remainder === 0) {
                 return decimalsList[teens];
             } else {
-                return `${decimalsList[teens]} y ${buildUnits(remainder)}`.trim();
+                return `${decimalsList[teens]} y ${buildUnits(remainder)}`;
             }
         }
     }
@@ -119,30 +119,40 @@ export function buildNumber(numberToBuild) {
             return 'cien'
         }
 
-        return `${hundredsList[hundreds]} ${buildDecimals(teens)}`.trim();
+        return `${hundredsList[hundreds]} ${buildDecimals(teens)}`;
     }
 
     function buildThousands(num) {
-        let thousands = Math.floor(num / 1000);
+        const thousands = Math.floor(num / 1000);
         const hundreds = Math.floor(num % 1000);
+        let result;
 
-        if (thousands === 1) {
-            return `mil ${buildHundreds(hundreds)}`.trim();
+        if (thousands === 0) {
+            result = '';
+        } else if (thousands === 1) {
+            result =  `mil`;
+        } else {
+            result = buildHundreds(thousands) + ' mil';
         }
 
-        return `${buildHundreds(thousands)} mil ${buildHundreds(hundreds)}`.trim();
+        return `${result} ${buildHundreds(hundreds)}`;
     }
 
     function buildMillions(num) {
-        const numLen = String(num).length;
         const millions = Math.floor(num / 1000000);
-        const thousands = parseInt(String(num).slice(-6, numLen-3), 10);
-        const hundreds =  parseInt(String(num).slice(-3, numLen), 10);
+        const reminder = Math.floor(num % 1000000);
+        let rest;
 
-        if (millions === 1) {
-            return `millón ${buildHundreds(thousands)} mil ${buildHundreds(hundreds)}`.trim();  
+        if(String(reminder).length > 3) {
+            rest = buildThousands(reminder);
+        } else {
+            rest = buildHundreds(reminder);
         }
 
-        return `${buildHundreds(millions)} ${buildHundreds(thousands)} mil ${buildHundreds(hundreds)}`.trim();  
+        if (millions === 1) {
+            return `un millón ${rest}`;  
+        }
+
+        return `${buildHundreds(millions)} millones ${rest}`;  
     }
 }
