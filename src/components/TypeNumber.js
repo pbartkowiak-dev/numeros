@@ -6,7 +6,7 @@ class TypeNumber extends React.Component {
             <section className="type-number">
                 <h2>Type the number here</h2>
                 <div className="numbers-app__section-container">
-                    <input
+                    <textarea
                         autoComplete="off"
                         autoCorrect="off"
                         autoCapitalize="off"
@@ -15,7 +15,8 @@ class TypeNumber extends React.Component {
                         type="text"
                         value={this.props.currentAnswer}
                         onChange={this.props.typeAnswer}    
-                    />
+                    >
+                    </textarea>
                 </div>
             </section>
         );

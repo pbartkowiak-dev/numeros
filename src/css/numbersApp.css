@@ -19,6 +19,7 @@
 	padding: 0 10px;
 }
 
+.numbers-app textarea,
 .numbers-app input {
     padding: 3px;	
 }
@@ -51,11 +52,63 @@
 
 .number-present__input {
 	width: 100%;
-	font-size: 16px;
+	font-size: 15px;
+	resize: none;
+	height: 90px;
 }
 
 .buttons__container {
 	display: flex;
+	margin: 0 -5px;
+}
+
+.buttons__container__button {
+	flex: 1;
+	margin: 0 5px;
+	padding: 5px 0;
+	color: #0272a9;
+	background: #fff;
+	border: 1px solid #4fbef5;
+	box-shadow: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 1px;
+	transition: .1s;
+}
+
+.buttons__container__button:hover,
+.buttons__container__button:active,
+.buttons__container__button:focus {
+	color: #fff;
+	background: #4fbef5;
+}
+
+.buttons__container__button--success {
+	color: #fff;
+	background: #2ECC40;
+	border: 1px solid #2ECC40;
+}
+
+.buttons__container__button--success:hover,
+.buttons__container__button--success:active,
+.buttons__container__button--success:focus {
+	color: #2c8f37;
+	background: #fff;
+}
+
+.buttons__container__button--confirm {
+	color: #fff;
+	background: #4fbef5;
+	border: 2px solid #4fbef5;
+}
+
+.buttons__container__button--confirm:hover,
+.buttons__container__button--confirm:active,
+.buttons__container__button--confirm:focus {
+	color: #0272a9;
+	background: #fff;	
 }
 
 .range-picker__default-ranges {
