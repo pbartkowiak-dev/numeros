@@ -12,7 +12,16 @@ class NumbersApp extends React.Component {
         minRange: 1,
         maxRange: 9,
         currentNumber: '',
-        currentAnswer: ''
+        properAnswer: '',
+        currentAnswer: '',
+        quizState: 'new'
+    };
+
+    quiz = {
+        setNew: () => this.setState({quizState: 'new'}),
+        setWrong: () => this.setState({quizState: 'wrongAnswer'}),
+        setRight: () => this.setState({quizState: 'rightAnswer'}),
+        setGiveUp: () => this.setState({quizState: 'giveUp'})
     };
 
     deafaultRanges = [{
@@ -55,7 +64,9 @@ class NumbersApp extends React.Component {
     createNumber = () => {
         let newNumber = Math.floor((Math.random() * (this.state.maxRange - this.state.minRange + 1)) + this.state.minRange);
         this.setState({
-            currentNumber: newNumber
+            currentNumber: newNumber,
+            properAnswer: buildNumber(newNumber),
+            currentAnswer: ''
         });
     };
 
@@ -66,12 +77,15 @@ class NumbersApp extends React.Component {
     }
 
     submitAnswer = () => {
-        console.log(buildNumber(this.state.currentNumber))
-        if (this.state.currentAnswer === buildNumber(this.state.currentNumber)) {
-            console.log('true')
+        if (this.state.currentAnswer.trim() === this.state.properAnswer) {
+            console.log('yeah');
+            this.quiz.setRight();       
+            this.setState({currentAnswer: ''});
             return true;
         }
-        console.log('false')        
+
+        console.log('no')
+        this.quiz.setWrong();
         return false;
     }
 
@@ -89,6 +103,8 @@ class NumbersApp extends React.Component {
                     />
                     <NumberPresent
                         currentNumber={this.state.currentNumber}
+                        quizState={this.state.quizState}
+                        properAnswer={this.state.properAnswer}
                     />
                     <TypeNumber
                         createNumber={this.createNumber}

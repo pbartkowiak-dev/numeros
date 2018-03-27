@@ -10,6 +10,14 @@ class NumberPresent extends React.Component {
                     {this.props.currentNumber}
                 </p>
             </div>
+            <div className="number-present__messages">
+                <p className={"number-present__message--wrong" + (this.props.quizState !== 'wrongAnswer' ? ' hidden' : '')}>
+                    Wrong answer
+                </p>
+                <p className={"number-present__message--right" + (this.props.quizState !== 'rightAnswer' ? ' hidden' : '')}>
+                    {this.props.properAnswer}
+                </p>
+                </div>
         </section>
         );
     }

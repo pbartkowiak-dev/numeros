@@ -1,6 +1,7 @@
 0 - cero
 1 - uno
 14 - catorce
+26 - veintiséis
 123 - ciento veintitrés
 1000 - mil
 1104 - mil ciento cuatro
@@ -9,6 +10,7 @@
 500000 - quinientos mil
 500400 - quinientos mil cuatrocientos
 500040 - quinientos mil cuarenta
+1000000 - un millón
 5000004 - cinco millones cuatro
 5100034 - cinco millones cien mil treinta y cuatro
 5100000 - cinco millones cien mil
