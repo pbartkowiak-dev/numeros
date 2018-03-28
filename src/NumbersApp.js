@@ -25,9 +25,6 @@ class NumbersApp extends React.Component {
     };
 
     deafaultRanges = [{
-        minRange: '',
-        maxRange: ''
-    }, {
         minRange: 0,
         maxRange: 10
     }, {
