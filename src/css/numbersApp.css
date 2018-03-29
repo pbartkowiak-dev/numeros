@@ -5,14 +5,14 @@
 .numbers-app {
 	width: 420px;
 	margin: 20px auto 0;
-	background: #fff;
+	background: var(--bg-color);
 	box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 	overflow: hidden;
 }
 
 .numbers-app section {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .numbers-app__container {
@@ -24,28 +24,51 @@
 }
 
 .numbers-app textarea,
+.numbers-app input {	
+	background: var(--input-bg);
+	border: 0;
+	color: var(--main-font-color);
+}
+
 .numbers-app input {
-    padding: 3px;	
+	padding: 3px;
+	border-radius: 30px;
+	text-align: center;
+}
+
+.numbers-app textarea {
+	border-radius: 20px;
+	padding: 10px 15px 5px;
+	margin: 15px 0 10px;
 }
 
 .numbers-app h2 {
-	color: #fff;
-	background: #4fbef5;
-	font-size: 14px;
-	padding: 3px 10px;
+	color: var(--headers-font-color);
+	background: var(--headers-bg);
+	font-size: var(--h2-font-size);
+	padding: 5px 10px;
 	margin-bottom: 5px;
+	font-weight: normal;
 }
 
 .range-picker__container {
 	display: flex;
+	margin: 0 -5px;
 }
 
 .range-picker__input-container {
 	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 5px;
+}
+
+.range-picker__input-container p {
+	font-size: 90%;
 }
 
 .range-picker__input--range{
-	width: 90%;
+	width: 80px;
 }
 
 .number-present__number {
@@ -63,6 +86,7 @@
 
 .number-present__messages {
 	margin-top: 10px;
+	text-align: center;
 }
 
 .number-present__message--wrong {
@@ -124,22 +148,24 @@
 }
 
 .range-picker__default-ranges {
-	margin-top: 8px;
+	margin-top: 15px;
 	display: flex;
 	justify-items: flex-start;
 }
 
 .range-picker__range {
-	border: 1px solid #2e2e2e;
-	border-radius: 4px;
+	border: 1px solid var(--border-color);
+	color: var(--discrete-font-color);
+	font-size: 14px;
+	border-radius: 12px;
 	display: inline-block;
-	padding: 3px;
-	margin-right: 5px;
+	padding: 3px 5px;
+	margin-right: 7px;
 	cursor: pointer;
 	transition: .2s;
 }
 
 .range-picker__range:hover {
-	color: #fff;
-	background: #2e2e2e;
+	color: var(--headers-font-color);
+	background: var(--input-bg);
 }
