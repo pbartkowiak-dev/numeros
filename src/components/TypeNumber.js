@@ -14,9 +14,9 @@ class TypeNumber extends React.Component {
                         className="number-present__input"
                         type="text"
                         value={this.props.currentAnswer}
-                        onChange={this.props.typeAnswer}    
-                    >
-                    </textarea>
+                        onChange={this.props.typeAnswer}
+                        onKeyDown={this.props.handleAnswerTypeKeyPress}
+                    />                   
                 </div>
             </section>
         );

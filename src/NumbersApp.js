@@ -78,15 +78,28 @@ class NumbersApp extends React.Component {
 
     submitAnswer = () => {
         if (this.state.currentAnswer.trim() === this.state.properAnswer) {
-            console.log('yeah');
             this.quiz.setRight();       
             this.setState({currentAnswer: ''});
             return true;
         }
 
-        console.log('no')
         this.quiz.setWrong();
         return false;
+    }
+
+    handleAnswerTypeKeyPress = ev => {
+        // @TODO       
+        // ev.preventDefault()
+        // e.stopPropagation()    
+        // event.nativeEvent.stopImmediatePropagation
+
+        if (ev.key === 'Enter') {
+            if (ev.ctrlKey) {
+                this.createNumber();
+            } else {
+                this.submitAnswer();
+            }
+        }
     }
 
     render() {
@@ -108,9 +121,10 @@ class NumbersApp extends React.Component {
                     />
                     <TypeNumber
                         createNumber={this.createNumber}
-                        currentAnswer={this.currentAnswer}
+                        currentAnswer={this.state.currentAnswer}
                         submitAnswer={this.submitAnswer}
                         typeAnswer={this.typeAnswer}
+                        handleAnswerTypeKeyPress={this.handleAnswerTypeKeyPress}
                     />
                     <Buttons
                         createNumber={this.createNumber}
