@@ -9,8 +9,8 @@ import './css/numbersApp.css';
 
 class NumbersApp extends React.Component {
     state = {
-        minRange: 1,
-        maxRange: 9,
+        minRange: 12345678,
+        maxRange: 12345678,
         currentNumber: '',
         properAnswer: '',
         currentAnswer: '',

@@ -1,0 +1,8 @@
+.number-present__number {
+    margin: 0 -5px;
+}
+
+.number-present__number .numChunk {
+    display: inline-block;
+    margin: 0 5px;
+}

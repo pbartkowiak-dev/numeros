@@ -30,6 +30,14 @@
 	color: var(--main-font-color);
 }
 
+.numbers-app textarea:focus,
+.numbers-app textarea:active,
+.numbers-app input:focus,
+.numbers-app active {
+	box-shadow: 0 0 0 1px var(--border-color);
+	outline: 0;
+}
+
 .numbers-app input {
 	padding: 3px;
 	border-radius: 30px;
