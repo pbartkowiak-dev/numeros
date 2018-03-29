@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/numberFormatting.css';
+import {isTeenOrTwentyCheck} from '../js/helpers';
 
 class NumberPresent extends React.Component {
     render() {
@@ -25,26 +26,26 @@ class NumberPresent extends React.Component {
 }
 
 const NumFormated = props => {
-
     const formatter = (num) => {
-        // const numsArr = String(num).match(/.{1,3}/g);
-        // String(12345).split('').reverse().map(el=>el.split('').reverse().join('')).join('').match(/.{1,3}/g).map(el=>el.split('').reverse().join('')).reverse().join('')
-        const numsArr =  String(12345).split('').reverse().map(el=>el.split('').reverse().join('')).join('').match(/.{1,3}/g)
-        let numFormatted = 999;
-        if (numsArr) {
-            numsArr[numsArr.length - 1].split('').map((num, i) => {
-                if (i === 0) {
-                    return <span className="unit"></span>
-                } else if (i === 1) {
-                    return <span className="decimal"></span>
-                }
-                return <span className="hundred"></span>
-            });
-            numFormatted = numsArr.reverse().map((chunk, i) => <span key={i} className="numChunk">{chunk}</span>);
-        }
+        const numberFormatted = String(12345628).split('').reverse().map((digit, i, arr) => {
+            const digitTypes = ['units', 'decimals', 'hundreds', 'thousends', 'thousends', 'thousends', 'millions', 'millions', 'millions'];
+            const isChunk = (i+1) % 3 === 0;
+            const isTeenOrTwenty = i < 2 && isTeenOrTwentyCheck(Number(arr[1] + arr[0]));
 
-        return numFormatted;
+            if (isTeenOrTwenty) {
+                return <span className="twentiesAndTeens" key={i}>{digit}</span>;   
+            }
+
+            if (isChunk) {
+                return <span className={"numChunk " + digitTypes[i] || 'greater'} key={i}>{digit}</span>;   
+            }
+            return <span className={digitTypes[i] || 'greater'} key={i}>{digit}</span>;            
+        }).reverse();
+        
+        return numberFormatted;
     }
+
+
 
     return (
         <span>{formatter(props.currentNumber)}</span>

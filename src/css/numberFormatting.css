@@ -1,8 +1,44 @@
 .number-present__number {
-    margin: 0 -5px;
+    --yellow: #BB8800;
+    --orange: #D34E01;
+    --red: #E43A27;
+    --magenta: #DA4281;
+    --violet: #6675C6;
+    --blue: #008DD3;
+    --cyan: #009F99;
+    --green: #869600;
+    --lightgray: #92A1A1;
 }
 
 .number-present__number .numChunk {
     display: inline-block;
-    margin: 0 5px;
+    margin-left: 10px;
+}
+
+.number-present__number .units {
+    color: var(--yellow);
+}
+
+.number-present__number .decimals {
+    color: var(--violet);
+}
+
+.number-present__number .twentiesAndTeens {
+    color: var(--magenta);    
+}
+
+.number-present__number .hundreds {
+    color: var(--orange);
+}
+
+.number-present__number .thousends {
+    color: var(--green);
+}
+
+.number-present__number .millions {
+    color: var(--red);
+}
+
+.number-present__number .greater {
+    color: var(--lightgray);
 }

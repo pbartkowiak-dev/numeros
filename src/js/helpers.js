@@ -156,3 +156,9 @@ export function buildNumber(numberToBuild) {
         return `${buildHundreds(millions)} millones ${rest}`;  
     }
 }
+
+export function isTeenOrTwentyCheck(num) {
+    if (typeof num === 'number' && num !== num) return false; // for NaN
+    if (typeof num === 'string') num = Number(num); // for Strings
+    return num >= 10 && num < 30;
+}
