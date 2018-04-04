@@ -158,7 +158,24 @@ export function buildNumber(numberToBuild) {
 }
 
 export function isTeenOrTwentyCheck(num) {
-    if (typeof num === 'number' && num !== num) return false; // for NaN
+    if (isNaN(num)) return false; // for NaN
     if (typeof num === 'string') num = Number(num); // for Strings
     return num >= 10 && num < 30;
+}
+
+export function isWordTeenOrTwentyCheck(string) {
+    if (!string) return false;
+    if(
+        string.includes('die') || 
+        string.includes('veint') ||
+        string === 'once' ||
+        string === 'doce' ||
+        string === 'trece' ||
+        string === 'catorce' ||
+        string === 'quince'
+    ) {
+        return true;
+    }
+    
+    return false;
 }

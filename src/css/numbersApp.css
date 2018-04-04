@@ -107,26 +107,37 @@
 }
 
 .buttons__container__button {
+	border: 1px solid var(--border-color);
+	color: var(--discrete-font-color);
+	background: none;
+	font-size: 14px;
+	border-radius: 12px;
+	display: inline-block;
+	padding: 3px 5px;
+	margin-right: 7px;
+	cursor: pointer;
 	flex: 1;
 	margin: 0 5px;
 	padding: 5px 0;
-	color: #0272a9;
-	background: #fff;
-	border: 1px solid #4fbef5;
 	box-shadow: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	border-radius: 1px;
-	transition: .1s;
+	transition: .2s;
 }
 
-.buttons__container__button:hover,
+.buttons__container__button:hover {
+	color: var(--headers-font-color);
+	background: var(--input-bg);
+}
+
 .buttons__container__button:active,
 .buttons__container__button:focus {
-	color: #fff;
-	background: #4fbef5;
+	color: var(--headers-font-color);
+	background: var(--input-bg);
+	box-shadow: 0 0 0 1px var(--border-color);
+	outline: 0;
 }
 
 .buttons__container__button--success {

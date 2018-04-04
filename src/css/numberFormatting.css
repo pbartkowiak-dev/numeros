@@ -1,44 +1,28 @@
-.number-present__number {
-    --yellow: #BB8800;
-    --orange: #D34E01;
-    --red: #E43A27;
-    --magenta: #DA4281;
-    --violet: #6675C6;
-    --blue: #008DD3;
-    --cyan: #009F99;
-    --green: #869600;
-    --lightgray: #92A1A1;
+.number-present {
+    --units: #BB8800;
+    --twentiesAndTeens: #DA4281;
+    --decimals: #6675C6;
+    --hundreds: #D34E01;
+    --thousends: #869600;
+    --greater: #92A1A1;
+    --and: #92A1A1;
 }
 
-.number-present__number .numChunk {
+.number-present .numChunk {
     display: inline-block;
     margin-left: 10px;
 }
 
-.number-present__number .units {
-    color: var(--yellow);
-}
+.number-present .and { color: var(--and); }
 
-.number-present__number .decimals {
-    color: var(--violet);
-}
+.number-present .units { color: var(--units); }
 
-.number-present__number .twentiesAndTeens {
-    color: var(--magenta);    
-}
+.number-present .decimals { color: var(--decimals); }
 
-.number-present__number .hundreds {
-    color: var(--orange);
-}
+.number-present .twentiesAndTeens { color: var(--twentiesAndTeens); }
 
-.number-present__number .thousends {
-    color: var(--green);
-}
+.number-present .hundreds { color: var(--hundreds); }
 
-.number-present__number .millions {
-    color: var(--red);
-}
+.number-present .thousends { color: var(--thousends); }
 
-.number-present__number .greater {
-    color: var(--lightgray);
-}
+.number-present .greater { color: var(--greater); }

@@ -20,8 +20,7 @@ class NumbersApp extends React.Component {
     quiz = {
         setNew: () => this.setState({quizState: 'new'}),
         setWrong: () => this.setState({quizState: 'wrongAnswer'}),
-        setRight: () => this.setState({quizState: 'rightAnswer'}),
-        setGiveUp: () => this.setState({quizState: 'giveUp'})
+        setShowAnswer: () => this.setState({quizState: 'showAnswer'}),
     };
 
     deafaultRanges = [{
@@ -58,7 +57,12 @@ class NumbersApp extends React.Component {
         });
     };
 
+    showAnswer = () => {
+        this.quiz.setShowAnswer();
+    }
+
     createNumber = () => {
+        this.quiz.setNew();
         let newNumber = Math.floor((Math.random() * (this.state.maxRange - this.state.minRange + 1)) + this.state.minRange);
         this.setState({
             currentNumber: newNumber,
@@ -74,8 +78,13 @@ class NumbersApp extends React.Component {
     }
 
     submitAnswer = () => {
+        if (this.state.quizState === 'showAnswer') {
+            this.createNumber();
+            return true;
+        }
+
         if (this.state.currentAnswer.trim() === this.state.properAnswer) {
-            this.quiz.setRight();       
+            this.quiz.setShowAnswer();       
             this.setState({currentAnswer: ''});
             return true;
         }
@@ -86,15 +95,18 @@ class NumbersApp extends React.Component {
 
     handleAnswerTypeKeyPress = ev => {
         // @TODO       
-        // ev.preventDefault()
-        // e.stopPropagation()    
+   
         // event.nativeEvent.stopImmediatePropagation
 
         if (ev.key === 'Enter') {
+            ev.preventDefault()
+            ev.stopPropagation() 
             if (ev.ctrlKey) {
                 this.createNumber();
-            } else {
+            } else if (this.state.quizState === 'new') {
                 this.submitAnswer();
+            } else if (this.state.quizState === 'showAnswer') {
+                this.createNumber();
             }
         }
     }
