@@ -6,6 +6,8 @@ import Buttons from './components/Buttons';
 import {buildNumber} from './js/helpers';
 
 import './css/numbersApp.css';
+import './css/mobileView.css';
+
 
 class NumbersApp extends React.Component {
     state = {
@@ -147,6 +149,7 @@ class NumbersApp extends React.Component {
                         handleAnswerTypeKeyPress={this.handleAnswerTypeKeyPress}
                     />
                     <Buttons
+                        showAnswer={this.showAnswer}
                         createNumber={this.createNumber}
                         submitAnswer={this.submitAnswer}
                     />

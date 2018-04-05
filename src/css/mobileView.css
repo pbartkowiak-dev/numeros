@@ -1,0 +1,40 @@
+@media only screen and (max-width: 450px) {
+
+    :root {
+        --main-font-size: '14px';
+        --h2-font-size: '14px;';
+    }
+
+    .numbers-app {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        height: 100vh;
+    }
+
+    .numbers-app__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .numbers-app section {
+        flex: 1;
+        margin-bottom: 5px;
+    }
+
+    section.buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .number-present__number {
+        font-size: 28px;
+    }
+
+    .present__messages {
+        font-size: 14px;
+    }
+}
