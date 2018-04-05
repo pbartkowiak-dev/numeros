@@ -9,8 +9,8 @@ import './css/numbersApp.css';
 
 class NumbersApp extends React.Component {
     state = {
-        minRange: 12345678,
-        maxRange: 12345678,
+        minRange: 0,
+        maxRange: 100,
         currentNumber: '',
         properAnswer: '',
         currentAnswer: '',
@@ -23,6 +23,8 @@ class NumbersApp extends React.Component {
         setShowAnswer: () => this.setState({quizState: 'showAnswer'}),
     };
 
+    maxAllowed = 999999999;
+
     deafaultRanges = [{
         minRange: 0,
         maxRange: 10
@@ -30,8 +32,11 @@ class NumbersApp extends React.Component {
         minRange: 0,
         maxRange: 100
     }, {
-        minRange: 1000,
-        maxRange: 1000000
+        minRange: 100,
+        maxRange: 10000
+    }, {
+        minRange: 100000,
+        maxRange: this.maxAllowed
     }];
 
     componentDidMount() {
@@ -46,14 +51,23 @@ class NumbersApp extends React.Component {
     };
 
     setMinRange = (evt) => {
+        const newMin = parseInt(evt.target.value, 10);
+        if (isNaN(newMin) || newMin < 0 || newMin > this.state.maxRange) {
+            return false;
+        }
         this.setState({
             minRange: parseInt(evt.target.value, 10)
         });
     };
 
     setMaxRange = (evt) => {
+        const newMax = parseInt(evt.target.value, 10);
+        if (isNaN(newMax) || newMax < this.state.minRange) {
+            return false;
+        }
+
         this.setState({
-            maxRange: parseInt(evt.target.value, 10)
+            maxRange: newMax > this.maxAllowed ? this.maxAllowed : newMax
         });
     };
 
@@ -94,16 +108,13 @@ class NumbersApp extends React.Component {
     }
 
     handleAnswerTypeKeyPress = ev => {
-        // @TODO       
-   
-        // event.nativeEvent.stopImmediatePropagation
-
         if (ev.key === 'Enter') {
-            ev.preventDefault()
-            ev.stopPropagation() 
+            ev.preventDefault();
+            ev.stopPropagation();
+
             if (ev.ctrlKey) {
                 this.createNumber();
-            } else if (this.state.quizState === 'new') {
+            } else if (this.state.quizState === 'new' || this.state.quizState === 'wrongAnswer') {
                 this.submitAnswer();
             } else if (this.state.quizState === 'showAnswer') {
                 this.createNumber();

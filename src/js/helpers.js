@@ -143,7 +143,7 @@ export function buildNumber(numberToBuild) {
         const reminder = Math.floor(num % 1000000);
         let rest;
 
-        if(String(reminder).length > 3) {
+        if (String(reminder).length > 3) {
             rest = buildThousands(reminder);
         } else {
             rest = buildHundreds(reminder);
@@ -165,7 +165,7 @@ export function isTeenOrTwentyCheck(num) {
 
 export function isWordTeenOrTwentyCheck(string) {
     if (!string) return false;
-    if(
+    if (
         string.includes('die') || 
         string.includes('veint') ||
         string === 'once' ||

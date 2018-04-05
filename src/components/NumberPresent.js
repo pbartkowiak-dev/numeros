@@ -77,7 +77,7 @@ class NumberPresent extends React.Component {
                     currentType = 'decimals';
                 }
     
-                if (word.includes('cien') && index <= 3) {
+                if (word.includes('cien') && index <= 3 || word === 'quinientos') {
                     currentType = 'hundreds';
                 }
             }
@@ -116,15 +116,15 @@ class NumberPresent extends React.Component {
                     {this.state.numFormatted}
                 </p>
             </div>
+            <h2>Answer</h2>
             <div className="number-present__messages">
                 <p className={"number-present__message--wrong" + (this.props.quizState !== 'wrongAnswer' ? ' hidden' : '')}>
                     Wrong answer
                 </p>
-                {/* <p className={"number-present__message--right" + (this.props.quizState !== 'showAnswer' ? ' hidden' : '')}> */}
-                <p>
+                <p className={"number-present__message--right" + (this.props.quizState !== 'showAnswer' ? ' hidden' : '')}>
                     {this.state.textFormatted}
                 </p>
-                </div>
+            </div>
         </section>
         );
     }
