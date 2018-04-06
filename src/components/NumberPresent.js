@@ -77,7 +77,7 @@ class NumberPresent extends React.Component {
                     currentType = 'decimals';
                 }
     
-                if (word.includes('cien') && index <= 3 || word === 'quinientos') {
+                if ((word.includes('cien') && index <= 3) || word === 'quinientos') {
                     currentType = 'hundreds';
                 }
             }

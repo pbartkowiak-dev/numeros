@@ -11,6 +11,7 @@
         box-shadow: none;
         border-radius: 0;
         height: 100vh;
+        margin-bottom: 50px;
     }
 
     .numbers-app__container {
@@ -36,5 +37,9 @@
 
     .present__messages {
         font-size: 14px;
+    }
+
+    .range-picker__default-ranges {
+        display: none;
     }
 }

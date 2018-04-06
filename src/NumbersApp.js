@@ -99,7 +99,7 @@ class NumbersApp extends React.Component {
             return true;
         }
 
-        if (this.state.currentAnswer.trim() === this.state.properAnswer) {
+        if (this.state.currentAnswer.trim().toLowerCase() === this.state.properAnswer) {
             this.quiz.setShowAnswer();       
             this.setState({currentAnswer: ''});
             return true;

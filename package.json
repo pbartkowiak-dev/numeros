@@ -1,5 +1,6 @@
 {
   "name": "numeros",
+  "homepage": "http://moje-cv.000webhostapp.com/numeros/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
