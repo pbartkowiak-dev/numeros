@@ -110,6 +110,13 @@ class NumbersApp extends React.Component {
     }
 
     handleAnswerTypeKeyPress = ev => {
+        if (this.state.quizState === 'showAnswer') {
+            ev.preventDefault();
+            ev.stopPropagation();
+            this.createNumber();
+            return;
+        }
+
         if (ev.key === 'Enter') {
             ev.preventDefault();
             ev.stopPropagation();
@@ -118,9 +125,7 @@ class NumbersApp extends React.Component {
                 this.createNumber();
             } else if (this.state.quizState === 'new' || this.state.quizState === 'wrongAnswer') {
                 this.submitAnswer();
-            } else if (this.state.quizState === 'showAnswer') {
-                this.createNumber();
-            }
+            }   
         }
     }
 
