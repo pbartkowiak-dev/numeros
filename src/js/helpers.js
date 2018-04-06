@@ -179,3 +179,10 @@ export function isWordTeenOrTwentyCheck(string) {
     
     return false;
 }
+
+export function lastDigit(num) {
+    return parseInt(
+        String(num).split('').pop(),
+        10
+    );
+}

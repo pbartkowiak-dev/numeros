@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/numberFormatting.css';
 import {isTeenOrTwentyCheck} from '../js/helpers';
 import {isWordTeenOrTwentyCheck} from '../js/helpers';
+import {lastDigit} from '../js/helpers';
 
 class NumberPresent extends React.Component {
     state = {
@@ -42,24 +43,24 @@ class NumberPresent extends React.Component {
 
     textFormatter = (numberData) => {
         const {num, unitTypesUsed, properAnswer} = numberData;
-
-        console.log(num)
-        console.log(unitTypesUsed)
-        console.log(properAnswer)
-
         const properAnswerArr = properAnswer.split(' ').reverse();
         const hasTwentiesAndTeens = !!unitTypesUsed.filter(w => w.includes('veinti') || w.includes('die')).length;
         let result = [];
         let currentType;
 
+console.log(unitTypesUsed)
+
         properAnswerArr.forEach((word, index) => {
 
             if (currentType !== 'thousends' && currentType !== 'greater') {
+                
                 if (isWordTeenOrTwentyCheck(word) && (index === 0  || index === 1)) {
                     currentType = 'twentiesAndTeens';
                 } else {
                     if (hasTwentiesAndTeens && index === 0) {
                         currentType = 'twentiesAndTeens';
+                    } else if (num !== 0 && lastDigit(num) === 0 && index === 0) {
+                        currentType = 'decimals';
                     } else if (!hasTwentiesAndTeens && index === 0) {
                         currentType = 'units';
                     }

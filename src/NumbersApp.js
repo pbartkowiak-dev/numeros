@@ -54,8 +54,8 @@ class NumbersApp extends React.Component {
 
     setMinRange = (evt) => {
         const newMin = parseInt(evt.target.value, 10);
-        if (isNaN(newMin) || newMin < 0 || newMin > this.state.maxRange) {
-            return false;
+        if (isNaN(newMin) || newMin < 0) {
+            return 0;
         }
         this.setState({
             minRange: parseInt(evt.target.value, 10)
@@ -64,8 +64,8 @@ class NumbersApp extends React.Component {
 
     setMaxRange = (evt) => {
         const newMax = parseInt(evt.target.value, 10);
-        if (isNaN(newMax) || newMax < this.state.minRange) {
-            return false;
+        if (isNaN(newMax) || newMax < 0) {
+            return 0;
         }
 
         this.setState({
