@@ -117,7 +117,11 @@ class NumbersApp extends React.Component {
             return;
         }
 
-        if (ev.key === 'Enter') {
+        // handle Space + Ctrl
+        if (ev.keyCode === 32 && ev.ctrlKey) {
+            this.showAnswer();
+        // handle Enter
+        } else if (ev.key === 'Enter') {
             ev.preventDefault();
             ev.stopPropagation();
 

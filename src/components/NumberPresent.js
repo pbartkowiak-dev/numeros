@@ -48,8 +48,6 @@ class NumberPresent extends React.Component {
         let result = [];
         let currentType;
 
-console.log(unitTypesUsed)
-
         properAnswerArr.forEach((word, index) => {
 
             if (currentType !== 'thousends' && currentType !== 'greater') {
